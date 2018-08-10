@@ -1,0 +1,15 @@
+#swagger:
+#  butler:
+#    api-docs-path: /v2/api-docs
+#    swagger-version: 2.0
+#    resources:
+#      base:
+#        name: base-service
+#      apps:
+#        name: apps-service
+#zuul:
+#  routes:
+#    base:
+#      url: http://192.168.4.15:1400/
+#    apps:
+#      url: http://192.168.4.15:1410/
