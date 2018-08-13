@@ -4,15 +4,6 @@
 spring :
   application :
     name : ly-cloud-swagger-butler
-  cloud:
-      config:
-#        uri : http://192.168.4.15:1300 #从注册服务中取
-        profile: dev
-        label: master
-        discovery:
-          enabled: true
-          service-id: ly-cloud-config-server
-
 ############################################################################################
 ###################################### 运行容器端口设置 ##########################################
 ############################################################################################
@@ -20,7 +11,6 @@ server :
   port : 11000
   tomcat :
       uri-encoding : UTF-8
-
 ############################################################################################
 ################################### eureka Server ##########################################
 ############################################################################################
@@ -29,10 +19,10 @@ eureka :
         prefer-ip-address : true
         lease-renewal-interval-in-seconds : 30
         lease-expiration-duration-in-seconds : 10
-        status-page-url: http://192.168.4.15:${server.port}/swagger-ui.html
+        status-page-url-path: /swagger-ui.html
     client :
         service-url :
-            defaultZone : http://192.168.4.15:1200/eureka/
+            defaultZone : ${defaultZone:http://${discovery:discovery}:1200/eureka/}
         register-with-eureka : true
         fetch-registry : true
 
