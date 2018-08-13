@@ -19,7 +19,7 @@ eureka :
         prefer-ip-address : true
         lease-renewal-interval-in-seconds : 30
         lease-expiration-duration-in-seconds : 10
-        status-page-url-path: /swagger-ui.html
+        status-page-url: http://${swaggerIp:discovery}:${server.port}/swagger-ui.html
     client :
         service-url :
             defaultZone : ${defaultZone:http://${discovery:discovery}:1200/eureka/}
